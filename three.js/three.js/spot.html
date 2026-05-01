@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spotLight</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+          "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
+          "OrbitControls": "https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import { GLTFLoader } from "GLTFLoader";
+      import * as THREE from "three";
+      import { OrbitControls } from "OrbitControls";  // OrbitControls import
+
+      const scene = new THREE.Scene();
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas: document.querySelector("#canvas"),
+        antialias: true, // 계단현상 줄이기
+      });
+
+      // 화면 크기 설정
+      renderer.setSize(window.innerWidth, window.innerHeight); // 렌더러 크기 설정
+      document.body.appendChild(renderer.domElement); // 캔버스를 body에 추가
+
+      // 카메라 설정
+      const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100); // 원근감 있는 카메라
+      camera.position.set(3, 10, 4); // 카메라 위치
+
+      // 씬에 빛 추가 (ambientLight 및 SpotLight)
+      const ambientLight = new THREE.AmbientLight(0xfffd, 4); // 부드러운 전체 조명
+      scene.add(ambientLight);
+
+      const spotLight = new THREE.SpotLight(0xffffbb);
+      spotLight.position.set(-8, 5, 8);
+      spotLight.angle = Math.PI / 15;
+      spotLight.intensity = 100;
+      spotLight.penumbra = 1;
+      spotLight.castShadow = true;
+      scene.add(spotLight);
+
+      // OrbitControls 설정 (마우스로 씬을 회전시키기 위해)
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;  // 부드러운 회전
+      controls.dampingFactor = 0.25;  // 회전 속도 조정
+      controls.screenSpacePanning = false;  // 카메라가 화면에 평행하게 움직이지 않게
+      controls.maxPolarAngle = Math.PI / 2;  // 카메라가 수평선 아래로 내려가지 않도록 제한
+
+      // GLTF 모델 로드
+      const loader = new GLTFLoader();
+      loader.load("oil_can/scene.gltf", function (gltf) {
+        scene.add(gltf.scene);
+
+        // 모델 회전 애니메이션
+        function animate() {
+          requestAnimationFrame(animate);
+          gltf.scene.rotation.y += 0.005;
+          controls.update(); // OrbitControls 업데이트
+          renderer.render(scene, camera);
+        }
+        animate();
+      });
+
+      // 구체와 상자 추가
+      const ballMat = new THREE.MeshStandardMaterial({
+        color: 0x00ff00,
+        roughness: 0.5,
+        matalness: 1.0,
+      });
+      const ballGeometry = new THREE.SphereGeometry(0.25, 32, 32);
+      const ballMesh = new THREE.Mesh(ballGeometry, ballMat);
+      ballMesh.position.set(1, 0.25, 1);
+      ballMesh.rotation.y = Math.PI;
+      ballMesh.castShadow = true;
+      ballMesh.receiveShadow = true;
+      scene.add(ballMesh);
+
+      const boxMat = new THREE.MeshStandardMaterial({
+        color: 0x0000ff,
+        roughness: 0.5,
+        matalness: 1.0,
+      });
+      const boxGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+      const boxMesh = new THREE.Mesh(boxGeometry, boxMat);
+      boxMesh.position.set(-0.5, 0.25, -1);
+      boxMesh.castShadow = true;
+      boxMesh.receiveShadow = true;
+      scene.add(boxMesh);
+
+      // 바닥 추가
+      const floorMat = new THREE.MeshStandardMaterial({
+        color: 0x808080, // 바닥 색상
+        roughness: 4,    // 표면 질감
+        metalness: 0.2,  // 금속성
+      });
+      const floorGeometry = new THREE.PlaneGeometry(100, 100); // 바닥 크기
+      const floorMesh = new THREE.Mesh(floorGeometry, floorMat);
+      floorMesh.rotation.x = -Math.PI / 2; // 바닥이 수평이 되도록 회전
+      floorMesh.position.y = -0; // 바닥 위치 조정
+      floorMesh.receiveShadow = true; // 그림자 받기
+      scene.add(floorMesh);
+
+      // 렌더러 설정
+      renderer.shadowMap.enabled = true;
+      renderer.toneMapping = THREE.ReinhardToneMapping;
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      // OrbitControls 업데이트
+      const orbitControls = new OrbitControls(camera, renderer.domElement);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        render();
+      }
+
+      function render() {
+        renderer.render(scene, camera);
+      }
+
+      // 윈도우 크기 변경 시 처리 (화면 리사이즈)
+      window.addEventListener("resize", () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      });
+    </script>
+  </body>
+</html>

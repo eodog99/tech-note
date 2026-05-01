@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Progress Animation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .content {
+    height: 200vh; /* 스크롤을 위해 페이지 높이를 증가시킴 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+  }
+
+  svg {
+    width: 80%;
+    max-width: 600px;
+  }
+
+  path {
+    stroke-linecap: round;
+    stroke-linejoin: miter;
+    transition: stroke-dashoffset 1s ease; /* 선 애니메이션 효과 */
+  }
+</style>
+<body>
+  <div class="content">
+    <svg id="progress-svg" viewBox="0 0 2000 500">
+      <path
+        id="progress-path"
+        d="M1786 4536L1635.8 4504.5C1485.7 4473 1185.3 4410 1032 4347C878.7 4284 872.3 4221 859 4158C845.7 4095 825.3 4032 851 3969C876.7 3906 948.3 3843 1052.5 3780C1156.7 3717 1293.3 3654 1321.3 3591C1349.3 3528 1268.7 3465 1208 3402C1147.3 3339 1106.7 3276 1174.8 3213C1243 3150 1420 3087 1496.5 3024C1573 2961 1549 2898 1572.3 2835C1595.7 2772 1666.3 2709 1557.5 2646C1448.7 2583 1160.3 2520 1137 2457C1113.7 2394 1355.3 2331 1343.5 2268C1331.7 2205 1066.3 2142 991 2079C915.7 2016 1030.3 1953 1038.8 1890C1047.3 1827 949.7 1764 982.3 1701C1015 1638 1178 1575 1311.3 1512C1444.7 1449 1548.3 1386 1563.5 1323C1578.7 1260 1505.3 1197 1484.2 1134C1463 1071 1494 1008 1557.8 945C1621.7 882 1718.3 819 1656 756C1593.7 693 1372.3 630 1312.3 567C1252.3 504 1353.7 441 1399.5 378C1445.3 315 1435.7 252 1393.2 189C1350.7 126 1275.3 63 1237.7 31.5L1200 0"
+        fill="none"
+        stroke="#0066FF"
+        stroke-width="20"
+      />
+    </svg>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+  <script>
+    // GSAP와 ScrollTrigger 플러그인 초기화
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 스크롤에 따른 선 애니메이션 만들기
+    window.addEventListener('load', () => {
+      const path = document.getElementById("progress-path");
+      
+      // 경로의 길이를 계산
+      const pathLength = path.getTotalLength();
+
+      // 선이 처음에 보이지 않도록 설정
+      path.style.strokeDasharray = pathLength;
+      path.style.strokeDashoffset = pathLength;
+
+      // 스크롤 트리거 애니메이션 설정
+      gsap.to(path, {
+        strokeDashoffset: 0, // 선을 완전히 그려내도록 설정
+        scrollTrigger: {
+          trigger: "#progress-svg", // SVG가 화면에 보이면 애니메이션 시작
+          start: "top bottom", // SVG가 화면 하단에 닿을 때 애니메이션 시작
+          end: "bottom top", // SVG가 화면 상단에 닿을 때 애니메이션 종료
+          scrub: true, // 스크롤에 맞춰 애니메이션 동기화
+        }
+      });
+    });
+  </script>
+</body>
+</html>

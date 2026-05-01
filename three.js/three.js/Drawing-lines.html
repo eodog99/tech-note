@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Drawing-lines</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script type="module">
+            
+
+			import * as THREE from 'https://cdn.jsdelivr.net/npm/three/build/three.module.js';
+
+			// Our Javascript will go here.
+
+    
+
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+
+            const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
+                    camera.position.set( 0, 0, 100 );
+                    camera.lookAt( 0, 0, 0 );
+
+                    const scene = new THREE.Scene();
+
+            //재질 정의 선을 그리기 위해서는 LineBasicMaterial나 LineDashedMaterial 사용하면 댐
+            const material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+            
+
+            //꼭짓점에 대한 기하학 정의
+            const points = [];
+                points.push( new THREE.Vector3( - 10, 0, 0 ) );
+                points.push( new THREE.Vector3( 0, 10, 0 ) );
+                points.push( new THREE.Vector3( 10, 0, 0 ) );
+
+            const geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+            const line = new THREE.Line( geometry, material );
+            //화면이 새로고침 될 때마다 계속해서 렌더링을 해 줄 것입니다
+            scene.add( line );
+            renderer.render( scene, camera );
+
+        
+		</script>
+	</body>
+</html>

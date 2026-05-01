@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+     <!-- [ 영국 런던을 중심으로 구글지도 만들기 ] -->
+<div id="googleMap" style="width: 100%;height: 700px;"></div>
+
+<script>
+
+    // 구글맵 초기화 함수
+    function myMap(){
+       var mapOptions = { 
+             center:new google.maps.LatLng( 35.224520896695,129.084795202743),
+             zoom:20,
+             isPanto: false,
+            styles:  [
+  {
+    "featureType": "administrative.country",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "color": "#ffeb3b"
+      },
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+]
+       };
+
+       // 구글맵 생성
+       var map = new google.maps.Map(document.getElementById("googleMap") , mapOptions );
+
+             var marker = new google.maps.Marker({
+        position : pos,
+        animation : google.maps.Animation.BOUNCE
+    });
+    marker.setMap(map);
+    }
+
+
+    
+        // WebGLOverlayView 생성
+        const webGLOverlayView = new google.maps.WebGLOverlayView();
+
+        // Three.js 씬, 카메라, 렌더러 초기화
+        let scene, renderer, camera, loader;
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        renderer = new THREE.WebGLRenderer({ canvas: document.createElement('canvas'), context: null });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // GLTF 모델 로드
+        loader = new THREE.GLTFLoader();
+        loader.load('oil_can/scene.gltf', function (gltf) {
+          const model = gltf.scene;
+          model.scale.set(0.1, 0.1, 0.1);
+          model.position.set(0, 0, 0);
+          scene.add(model);
+          
+          // 모델 회전 애니메이션
+          function animate() {
+            requestAnimationFrame(animate);
+            model.rotation.y += 0.01;
+            renderer.render(scene, camera);
+          }
+          animate();
+        });
+
+        // WebGLOverlayView의 onAdd 메서드에서 씬 초기화
+        webGLOverlayView.onAdd = function () {
+          const canvas = renderer.domElement;
+          map.getDiv().appendChild(canvas);  // 구글 맵의 캔버스에 3D 모델 캔버스 추가
+
+          
+          const mapCenter = map.getCenter();
+          const position = new google.maps.LatLng(mapCenter.lat(), mapCenter.lng());
+          const projection = webGLOverlayView.getProjection();
+          const coords = projection.fromLatLngToDivPixel(position);
+          camera.position.set(coords.x, coords.y, 10);  // 카메라 위치 설정
+        };
+
+        // WebGLOverlayView의 onDraw 메서드에서 렌더링
+        webGLOverlayView.onDraw = function () {
+          renderer.render(scene, camera);
+        };
+
+        // 맵에 WebGLOverlayView 추가
+        webGLOverlayView.setMap(map);
+      
+    </script>
+ </script> 
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAm-xSF7xuCXefu_4T2T3rfqRx9otDRQI&callback=myMap"></script>
+ <!-- Three.js 및 GLTFLoader 로드 -->
+ <script type="module">
+    import * as THREE from "https://unpkg.com/three@0.141.0/build/three.module.js";
+    import { GLTFLoader } from "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js";
+  </script>
+ 
+</body>
+</html>
+
+

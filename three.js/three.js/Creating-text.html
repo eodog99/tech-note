@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Make-text</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script type="module">
+            import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
+            import { FontLoader, FontData } from "three/examples/jsm/loaders/FontLoader";
+            import helvetiker_regular from "three/examples/fonts/helvetiker_regular.typeface.json";
+
+			import * as THREE from 'https://cdn.jsdelivr.net/npm/three/build/three.module.js';
+            
+			// Our Javascript will go here.
+
+            import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xbbbb);
+
+//camera
+const camera = new THREE.PerspectiveCamera(45,
+    window.innerWidth / window.innerHeight, 0.1, 1000);
+
+//itit camera
+camera.position.z = 45;
+camera.position.x = 3;
+camera.position.y = 20;
+
+//renderer 
+const renderer = new THREE.WebGLRenderer({antialias : true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.shadowMap.enabled = true
+
+
+//controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target = new THREE.Vector3(0,0,-40);
+controls.update();
+
+const plane = new THREE.Mesh(new THREE.PlaneGeometry(200,200), new THREE.MeshPhongMaterial({color : 0x0a7d15}));
+plane.rotation.x = -Math.PI /2
+plane.receiveShadow = true
+scene.add(plane)
+
+//Init Hemisphere light
+scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+///point light
+const light1 = new THREE.PointLight(0xff6666,1,100);
+light1.castShadow = true;
+light1.shadow.mapSize.width = 4096;
+light1.shadow.mapSize.height = 4096;
+scene.add(light1);
+
+const light2 = new THREE.PointLight(0x33ff33, 1, 100);
+light2.castShadow = true;
+light2.shadow.mapSize.width = 4096;
+light2.shadow.mapSize.height = 4096;
+scene.add(light2);
+
+
+//Animate
+function animate() {
+    const now = Date.now()/ 10000;
+    light1.position.y = 15;
+    light1.position.x = Math.cos(now) * 20;
+    light1.position.z = Math.sin(now) * 20;
+
+    light2.position.y = 15;
+    light2.position.x = Math.cos(now) * 20;
+    light2.position.z = Math.sin(now) * 20;
+
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+
+}
+
+document.body.appendChild(renderer.domElement);
+animate();
+        
+		</script>
+	</body>
+</html>

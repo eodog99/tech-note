@@ -1,0 +1,665 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 752,
+      "max": [
+        0.015561000443994999,
+        0.015444000251591206,
+        0.0776429995894432
+      ],
+      "min": [
+        -0.016040999442338943,
+        -0.017350999638438225,
+        -0.044502001255750656
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 9024,
+      "componentType": 5126,
+      "count": 752,
+      "max": [
+        0.9989872574806213,
+        0.9962703585624695,
+        0.9862778782844543
+      ],
+      "min": [
+        -0.9988783597946167,
+        -0.9994514584541321,
+        -0.9825162291526794
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 752,
+      "max": [
+        0.9949969053268433,
+        0.9991880059242249,
+        0.9987667202949524,
+        1.0
+      ],
+      "min": [
+        -0.9999743700027466,
+        -0.9954618215560913,
+        -0.9990850687026978,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 752,
+      "max": [
+        0.9534299969673157,
+        0.9634550213813782
+      ],
+      "min": [
+        0.04022499918937683,
+        0.04207099974155426
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 3780,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 18048,
+      "componentType": 5126,
+      "count": 13023,
+      "max": [
+        0.4568690061569214,
+        0.4598729908466339,
+        0.10233300179243088
+      ],
+      "min": [
+        -0.4568690061569214,
+        -0.4598720073699951,
+        -0.18383200466632843
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 174324,
+      "componentType": 5126,
+      "count": 13023,
+      "max": [
+        0.999387264251709,
+        0.9993919730186462,
+        1.0
+      ],
+      "min": [
+        -0.9993873834609985,
+        -0.9993919730186462,
+        -0.9999294877052307
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 12032,
+      "componentType": 5126,
+      "count": 13023,
+      "max": [
+        0.9997382760047913,
+        0.9997438192367554,
+        0.999142050743103,
+        1.0
+      ],
+      "min": [
+        -0.9991679787635803,
+        -0.9994300007820129,
+        -0.9976085424423218,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 6016,
+      "componentType": 5126,
+      "count": 13023,
+      "max": [
+        0.9872980117797852,
+        0.9794819951057434
+      ],
+      "min": [
+        0.017602000385522842,
+        0.024759000167250633
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 15120,
+      "componentType": 5125,
+      "count": 34080,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 330600,
+      "componentType": 5126,
+      "count": 3903,
+      "max": [
+        0.2535820007324219,
+        0.22720499336719513,
+        0.5279539823532104
+      ],
+      "min": [
+        -0.28669100999832153,
+        -0.2866460084915161,
+        -0.28515100479125977
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 377436,
+      "componentType": 5126,
+      "count": 3903,
+      "max": [
+        0.9990367889404297,
+        0.9997946619987488,
+        0.9999444484710693
+      ],
+      "min": [
+        -0.9996393322944641,
+        -0.9994596242904663,
+        -0.9998451471328735
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 220400,
+      "componentType": 5126,
+      "count": 3903,
+      "max": [
+        0.9992314577102661,
+        0.9995443820953369,
+        0.999909520149231,
+        1.0
+      ],
+      "min": [
+        -0.9999980330467224,
+        -0.9998601675033569,
+        -0.9999831914901733,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 110200,
+      "componentType": 5126,
+      "count": 3903,
+      "max": [
+        0.9045220017433167,
+        0.9933429956436157
+      ],
+      "min": [
+        0.006657000165432692,
+        0.006657000165432692
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 151440,
+      "componentType": 5125,
+      "count": 15108,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Nortenko Dmytro (https://sketchfab.com/leondp)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/three-candles-and-a-golden-candlestick-9d46daabbefe4b4eab74d9da349dd015",
+      "title": "Three candles and a golden candlestick"
+    },
+    "generator": "Sketchfab-16.12.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 211872,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 141424,
+      "byteOffset": 211872,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 424272,
+      "byteOffset": 353296,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 282848,
+      "byteOffset": 777568,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1060416,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_clearcoat",
+    "KHR_materials_emissive_strength",
+    "KHR_materials_specular"
+  ],
+  "images": [
+    {
+      "uri": "textures/candles_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/candles_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/candles_normal.png"
+    },
+    {
+      "uri": "textures/candles_clearcoat.png"
+    },
+    {
+      "uri": "textures/candlestick_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/candlestick_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/candlestick_normal.png"
+    },
+    {
+      "uri": "textures/fire_baseColor.png"
+    },
+    {
+      "uri": "textures/fire_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/fire_emissive.jpeg"
+    },
+    {
+      "uri": "textures/fire_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 0.4821672602740166,
+          "clearcoatNormalTexture": {
+            "index": 2
+          },
+          "clearcoatRoughnessFactor": 1.0,
+          "clearcoatRoughnessTexture": {
+            "index": 1
+          },
+          "clearcoatTexture": {
+            "index": 3
+          }
+        }
+      },
+      "name": "candles",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.01,
+        0.0,
+        0.0
+      ],
+      "name": "candlestick",
+      "normalTexture": {
+        "index": 6
+      },
+      "occlusionTexture": {
+        "index": 5,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 4
+        },
+        "metallicFactor": 0.944,
+        "metallicRoughnessTexture": {
+          "index": 5
+        }
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "emissiveFactor": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissiveTexture": {
+        "index": 9
+      },
+      "extensions": {
+        "KHR_materials_emissive_strength": {
+          "emissiveStrength": 10.0
+        },
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "specularFactor": 1.0
+        }
+      },
+      "name": "fire",
+      "normalTexture": {
+        "index": 10
+      },
+      "occlusionTexture": {
+        "index": 8
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          0.10374655715128861
+        ],
+        "baseColorTexture": {
+          "index": 7
+        },
+        "metallicRoughnessTexture": {
+          "index": 8
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "defaultMaterial",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "defaultMaterial",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "defaultMaterial",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 11,
+            "POSITION": 10,
+            "TANGENT": 12,
+            "TEXCOORD_0": 13
+          },
+          "indices": 14,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        4,
+        6
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.371139006309477e-08,
+        0.999999999999999,
+        0.0,
+        0.0,
+        -0.999999999999999,
+        -4.371139006309477e-08,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Collada visual scene group"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        30.480364,
+        5e-06,
+        -95.241516,
+        0.0,
+        -95.241516,
+        4e-06,
+        -30.480364,
+        0.0,
+        3e-06,
+        121.073471,
+        7e-06,
+        0.0,
+        10.954682,
+        106.091629,
+        -5.1875,
+        1.0
+      ],
+      "name": "fire"
+    },
+    {
+      "mesh": 0,
+      "name": "defaultMaterial"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.6e-05,
+        -100.0,
+        0.0,
+        0.0,
+        100.0,
+        -1.6e-05,
+        0.0,
+        -1e-06,
+        19.686144,
+        7e-06,
+        1.0
+      ],
+      "name": "candlestick"
+    },
+    {
+      "mesh": 1,
+      "name": "defaultMaterial"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.6e-05,
+        -100.0,
+        0.0,
+        0.0,
+        100.0,
+        -1.6e-05,
+        0.0,
+        1.328864,
+        50.635582,
+        -0.736423,
+        1.0
+      ],
+      "name": "candles"
+    },
+    {
+      "mesh": 2,
+      "name": "defaultMaterial"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    },
+    {
+      "sampler": 0,
+      "source": 6
+    },
+    {
+      "sampler": 0,
+      "source": 7
+    },
+    {
+      "sampler": 0,
+      "source": 8
+    },
+    {
+      "sampler": 0,
+      "source": 9
+    },
+    {
+      "sampler": 0,
+      "source": 10
+    }
+  ]
+}
